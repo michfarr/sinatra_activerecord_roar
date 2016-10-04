@@ -2,7 +2,7 @@ class CreateSongs < ActiveRecord::Migration
   def up
     create_table :songs do |t|
       t.string :track
-      t.integer :duration
+      t.integer :track_time
       t.references :artist, index: true
       t.references :album, index: true
 
