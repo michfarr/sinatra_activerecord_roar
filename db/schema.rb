@@ -32,7 +32,7 @@ ActiveRecord::Schema.define(version: 20161003112205) do
 
   create_table "songs", force: :cascade do |t|
     t.string   "track"
-    t.integer  "duration"
+    t.integer  "track_time"
     t.integer  "artist_id"
     t.integer  "album_id"
     t.datetime "created_at", null: false

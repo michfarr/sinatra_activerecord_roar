@@ -271,13 +271,11 @@ album_songs['Flash Is Back'] = ['Groove To Get Down', 254],
 album_songs.each do |album_title, songs|
   album = Album.find_by(title: album_title)
 
-  puts "#{album} being seeded with id:#{album.id} and title:#{album.title}"
-  songs.each do |track, duration|
-     album.id
-    song = Song.create(track: track,
-                       duration: duration,
-                       album_id: album.id)
-                 #      artist_id: album.artist_id)
+  songs.each do |track, track_time|
+    Song.create(track: track,
+                track_time: track_time,
+                album_id: album.id,
+                artist_id: album.artist_id)
   end
 end
 puts "Seeded Songs (ln:#{__LINE__})"
