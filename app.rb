@@ -1,3 +1,4 @@
+# frozen_string_literal: true
 require 'sinatra/base'
 require 'sinatra/json'
 require 'sinatra/activerecord'
@@ -7,12 +8,18 @@ require 'roar/hypermedia'
 require './models/init'
 require './representers/init'
 
+# Document Class
 class MyApp < Sinatra::Base
   register Sinatra::ActiveRecordExtension
 
   set :database, adapter: 'sqlite3', database: 'blendle_db.sqlite3'
 
- # INDEX
+  get '/' do
+    content_type 'application/json'
+    { message: 'This page definitely loaded' }.to_json
+  end
+
+  # INDEX
   get '/artists' do
     @artists = Artist.all.extend(ArtistsRepresenter)
     @artists.to_json
@@ -29,11 +36,11 @@ class MyApp < Sinatra::Base
   end
 
   # EDIT
-  put '/artists/:id' do
+  put '/artists/:name' do
   end
 
   # DELETE
-  delete '/artists/:id' do
+  delete '/artists/:name' do
   end
 
   get '/albums' do
@@ -41,18 +48,18 @@ class MyApp < Sinatra::Base
     @albums.to_json
   end
 
-  get '/albums/:id' do
-    @album = Album.find_by_id(params[:id]).extend(AlbumRepresenter)
+  get '/albums/:title' do
+    @album = Album.find_by_title(params[:title]).extend(AlbumRepresenter)
     @album.to_json
   end
 
   post '/albums' do
   end
 
-  put '/albums/:id' do
+  put '/albums/:title' do
   end
 
-  delete 'albums/:id' do
+  delete 'albums/:title' do
   end
 
   get '/songs' do
@@ -60,17 +67,17 @@ class MyApp < Sinatra::Base
     @songs.to_json
   end
 
-  get '/songs/:id' do
-    @song = Song.find_by_id(params[:id]).extend(SongRepresenter)
+  get '/songs/:track' do
+    @song = Song.find_by_track(params[:track]).extend(SongRepresenter)
     @song.to_json
   end
 
   post '/songs' do
   end
 
-  put '/songs/:id' do
+  put '/songs/:track' do
   end
 
-  delete '/songs/:id' do
+  delete '/songs/:track' do
   end
 end

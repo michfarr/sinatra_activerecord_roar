@@ -1,3 +1,4 @@
+# frozen_string_literal: true
 artists = [
   ['Thelonius Monk', 'Artist History'],
   ['Daft Punk', 'Artist History Goes Here'],
@@ -20,7 +21,7 @@ genres = [
 ]
 
 genres.each do |genre_name|
-#  genre = Genre.create(name: genre_name)
+  # genre = Genre.create(name: genre_name)
 end
 puts "Seeded Genres (ln:#{__LINE__})"
 
@@ -50,8 +51,9 @@ artist_albums.each do |artist_name, albums|
   artist = Artist.find_by(name: artist_name)
 
   albums.each do |title, year, duration, description|
-    album = Album.create(title: title, artist_id: artist.id,
-                         release_year: year, description: description)
+    _album = Album.create(title: title, duration: duration,
+                          artist_id: artist.id, release_year: year,
+                          description: description)
   end
 end
 puts "Seeded Albums (ln:#{__LINE__})"
@@ -129,21 +131,21 @@ album_songs['Homework'] = ['Daftendirekt', 164],
                           ['Funk Ad', 50]
 
 album_songs['Discovery'] = ['One More Time', 320],
-                          ['Aerodynamic', 207],
-                          ['Digital Love', 298],
-                          ['Harder, Better, Faster, Stronger', 225],
-                          ['Crescendolls', 211],
+                           ['Aerodynamic', 207],
+                           ['Digital Love', 298],
+                           ['Harder, Better, Faster, Stronger', 225],
+                           ['Crescendolls', 211],
 
-                          ['Nightvision', 104],
-                          ['Superheroes', 237],
-                          ['High Life', 202],
-                          ['Something About Us', 231],
-                          ['Voyager', 223],
+                           ['Nightvision', 104],
+                           ['Superheroes', 237],
+                           ['High Life', 202],
+                           ['Something About Us', 231],
+                           ['Voyager', 223],
 
-                          ['Veridis Quo', 344],
-                          ['Short Circuit', 206],
-                          ['Face to Face', 238],
-                          ['Too Long', 600]
+                           ['Veridis Quo', 344],
+                           ['Short Circuit', 206],
+                           ['Face to Face', 238],
+                           ['Too Long', 600]
 
 album_songs['Human After All'] = ['Human After All', 320],
                                  ['The Prime Time of Your Life', 263],
@@ -161,7 +163,7 @@ album_songs['Human After All'] = ['Human After All', 320],
 album_songs['Bush Doctor'] = ["(You Gotta Walk) Don't Look Back", 223],
                              ['Pick Myself Up', 235],
                              ["I'm the Toughest", 228],
-                             ["Soon Come", 234],
+                             ['Soon Come', 234],
                              ['Moses - The Prophet', 217],
 
                              ['Bush Doctor', 244],

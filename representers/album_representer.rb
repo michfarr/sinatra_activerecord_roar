@@ -1,8 +1,10 @@
+# frozen_string_literal: true
 module AlbumRepresenter
   include Roar::JSON::HAL
 
-  property :id
-  property :title
+  link :self do
+    "http://albums/#{title}"
+  end
 
   collection :songs, class: Song, embedded: true do
     property :id
@@ -10,13 +12,12 @@ module AlbumRepresenter
     property :track_time
   end
 
-  link :self do
-    "http://albums/#{id}"
-  end
+  property :id
+  property :title
 end
 
 module AlbumsRepresenter
   include Representable::JSON::Collection
 
-  items extend: AlbumRepresenter, class:Album
+  items extend: AlbumRepresenter, class: Album
 end
