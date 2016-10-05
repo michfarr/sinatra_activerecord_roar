@@ -1,0 +1,9 @@
+AllCops:
+  Exclude:
+    - 'features/step_definitions/*.rb'
+    - 'db/schema.rb'
+Documentation:
+  Enabled: false
+Metrics/LineLength:
+  Exclude:
+    - 'db/seeds.rb'

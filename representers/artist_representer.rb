@@ -1,8 +1,10 @@
+# frozen_string_literal: true
 module ArtistRepresenter
   include Roar::JSON::HAL
 
-  property :id
-  property :name
+  link :self do
+    "/artists/#{name}"
+  end
 
   collection :albums, class: Album, embedded: true do
     property :title
@@ -10,9 +12,8 @@ module ArtistRepresenter
     property :duration
   end
 
-  link :self do
-    "/artists/#{id}"
-  end
+  property :id
+  property :name
 end
 
 module ArtistsRepresenter

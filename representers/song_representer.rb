@@ -1,12 +1,13 @@
+# frozen_string_literal: true
 module SongRepresenter
   include Roar::JSON::HAL
 
+  link :self do
+    "/songs/#{title}"
+  end
+
   property :id
   property :track
-
-  link :self do
-    "/songs/#{id}"
-  end
 end
 
 module SongsRepresenter
