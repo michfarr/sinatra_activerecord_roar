@@ -8,8 +8,8 @@ gem 'sinatra-contrib'
 gem 'sinatra-activerecord'
 gem 'rake'
 gem 'roar'
-gem 'hyperresource'
-gem 'jwt'
+# gem 'hyperresource'
+# gem 'jwt'
 
 group :production do
   gem 'pg'
