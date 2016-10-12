@@ -24,7 +24,7 @@ I also decided to package the code with Docker.  To use the app:
 `$ docker-compose run web rake db:create db:migrate db:seed`
 
 __TODO__
-Implement Search
-Implement Users/Authentication
-Implement client
-Extend feature coverage for current content (and for new content)
+* Implement Search
+* Implement Users/Authentication
+* Implement client
+* Extend feature coverage for current content (and for new content)
