@@ -12,10 +12,9 @@ require './representers/init'
 class MyApp < Sinatra::Base
   register Sinatra::ActiveRecordExtension
 
-  configure :development, :test do
+  configure :development do
     require 'logger'
     set :logging, Logger::DEBUG
-    set :database, adapter: 'sqlite3', database: 'blendle_db.sqlite3'
   end
 
   configure do
