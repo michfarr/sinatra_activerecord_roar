@@ -19,6 +19,9 @@ class MyApp < Sinatra::Base
     set :logging, Logger::DEBUG
   end
 
+  configure :production do
+    set :server, :puma
+
   before do
     headers 'Access-Control-Allow-Methods' => %w(OPTIONS GET POST PUT DELETE),
             'Accept' => %(application/json)
@@ -36,3 +39,5 @@ class MyApp
     { message: 'This page definitely loaded' }.to_json
   end
 end
+
+MyApp.run! if __FILE__ == $PROGRAM_NAME

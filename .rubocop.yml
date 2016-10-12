@@ -1,9 +1,13 @@
 AllCops:
   Exclude:
-    - 'features/step_definitions/*.rb'
     - 'db/schema.rb'
+    - 'features/support/*.rb'
 Documentation:
   Enabled: false
 Metrics/LineLength:
   Exclude:
     - 'db/seeds.rb'
+    - 'features/step_definitions/*.rb'
+Lint/AmbiguousRegexpLiteral:
+  Exclude:
+    - 'features/step_definitions/*.rb'
