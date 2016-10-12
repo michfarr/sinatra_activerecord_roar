@@ -19,8 +19,9 @@ class MyApp < Sinatra::Base
     set :logging, Logger::DEBUG
   end
 
-  configure :production do
+  configure do
     set :server, :puma
+  end
 
   before do
     headers 'Access-Control-Allow-Methods' => %w(OPTIONS GET POST PUT DELETE),
