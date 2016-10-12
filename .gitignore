@@ -3,6 +3,3 @@
 *.swo
 
 *.sqlite3
-
-.gitignore
-coverage
