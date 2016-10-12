@@ -8,12 +8,12 @@ gem 'sinatra-contrib'
 gem 'sinatra-activerecord'
 gem 'rake'
 gem 'roar'
+gem 'puma'
 # gem 'hyperresource'
 # gem 'jwt'
 
 group :production do
   gem 'pg'
-  gem 'puma'
 end
 
 group :development, :test do
