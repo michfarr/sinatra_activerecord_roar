@@ -1,15 +1,20 @@
 # frozen_string_literal: true
 Given /^there (?:is|are) (\d+) (\w+)$/ do |total, model|
-  case model
-  when /Albums?/i
-    create_list(:album, total.to_i)
-    expect(Album.count).to eq(total.to_i)
-  when /Artists?/i
-    create_list(:artist, total.to_i)
-    expect(Artist.count).to eq(total.to_i)
-  when /Songs?/i
-    create_list(:song, total.to_i)
-    expect(Song.count).to eq(total.to_i)
+  # Check to see if table exists
+  begin
+    case model
+    when /Albums?/i
+      create_list(:album, total.to_i)
+      expect(Album.count).to eq(total.to_i)
+    when /Artists?/i
+      create_list(:artist, total.to_i)
+      expect(Artist.count).to eq(total.to_i)
+    when /Songs?/i
+      create_list(:song, total.to_i)
+      expect(Song.count).to eq(total.to_i)
+    end
+  rescue ActiveRecord::StatementInvalid
+    puts 'Insure the database migration has been completed with the command "RACK_ENV=\'test\' rake db:migrate"'.colorize(:blue)
   end
 end
 
@@ -116,6 +121,7 @@ Then /^the first (\w+) (?:is|are) updated$/ do |model|
     expect(song.track).not_to eq(@original_song.track)
   end
 end
+
 When /^a user attempts to delete the first (\w+)$/ do |model|
   case model
   when /Albums?/i
