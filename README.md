@@ -6,7 +6,7 @@ with _Guard_ to insure code quality.  Features were written using _Cucumber_
 to test the endpoints for the nested resources: Artists, Albums, and Songs.
 
 My objectives were:
-* 3 linked entities: Artists, Albums, Songs~~
+* 3 linked entities: ~~Artists, Albums, Songs~~
 * Basic operations are implemented: ~~Create~~, ~~Read~~, ~~Update~~, ~~Destroy~~, Search
 * Hypermedia API using HAL/JSON
 * Supports multiple users and performs authentication with JSON Web Tokens
@@ -17,11 +17,13 @@ My objectives were:
 
 I also decided to package the code with Docker.  To use the app:
 
-`$ git clone git@github.com:michfarr/sinatra_activerecord_roar.git`
+$ `git clone git@github.com:michfarr/sinatra_activerecord_roar.git`
 
-`$ docker-compose up`
+$ `docker-compose up`
 
-`$ docker-compose run web rake db:create db:migrate db:seed`
+$ `docker-compose run web rake db:create db:migrate db:seed`
+
+Once you've done this you'll be able to use the app.
 
 __TODO__
 * Implement Search
