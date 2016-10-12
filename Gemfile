@@ -24,8 +24,8 @@ end
 group :test do
   gem 'database_cleaner'
   gem 'factory_girl'
+  gem 'colorize'
   gem 'cucumber'
-  gem 'capybara'
   gem 'rspec'
 end
 

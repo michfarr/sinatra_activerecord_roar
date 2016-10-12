@@ -1,0 +1,12 @@
+version: '2'
+services:
+  db:
+    image: postgres
+  web:
+    build: .
+    ports:
+      - "9292:9292"
+    environment:
+      - DATABASE_URL=postgres://postgres:password@db:5432/music_app_db
+    depends_on:
+      - db

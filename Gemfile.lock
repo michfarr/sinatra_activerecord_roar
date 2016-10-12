@@ -26,6 +26,7 @@ GEM
       rack-test (>= 0.5.4)
       xpath (~> 2.0)
     coderay (1.1.1)
+    colorize (0.8.1)
     concurrent-ruby (1.0.2)
     cucumber (2.4.0)
       builder (>= 2.1.2)
@@ -161,6 +162,7 @@ PLATFORMS
 
 DEPENDENCIES
   capybara
+  colorize
   cucumber
   database_cleaner
   factory_girl

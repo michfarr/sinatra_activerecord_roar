@@ -1,0 +1,16 @@
+development:
+  adapter: sqlite3
+  encoding: unicode
+  database: development_db.sqlite3
+
+test:
+  adapter: sqlite3
+  database: test_db.sqlite3
+
+production:
+  adapter: postgresql
+  encoding: unicode
+  database: music_app_db
+  pool: 2
+  username: postgres
+  password: password

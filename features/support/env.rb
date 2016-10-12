@@ -3,15 +3,13 @@ ENV['RACK_ENV'] = 'test'
 
 require File.join(File.dirname(__FILE__), '..', '..', 'app.rb')
 
-# require 'capybara'
-# require 'capybara/cucumber'
 require 'rspec'
 require 'rack/test'
 require 'factory_girl'
 
-FactoryGirl.find_definitions
+require 'colorize'
 
-# Capybara.app = MyApp
+FactoryGirl.find_definitions
 
 module AppHelper
   def app
@@ -20,7 +18,6 @@ module AppHelper
 end
 
 class MyAppWorld
-  # include Capybara::DSL
   include RSpec::Expectations
   include RSpec::Matchers
   include FactoryGirl::Syntax::Methods
