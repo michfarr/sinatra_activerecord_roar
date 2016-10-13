@@ -132,10 +132,10 @@ When /^a user attempts to delete the first (\w+)$/ do |model|
   when /Artists?/i
     @original_count = Artist.count.to_i
     to_delete = Artist.first
+
     delete "artists/#{to_delete[:id]}"
   when /Songs?/i
     @original_count = Song.count.to_i
-
     song = Song.first
     artist_id = song.artist_id
     album_id = song.album_id
